@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Dhruv Vasaniya - E&TC Engineer & Hardware Enthusiast</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
@@ -628,136 +630,6 @@
             margin-top: 10px;
         }
 
-        /* Work Experience Timeline */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary-cyan), var(--primary-magenta));
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 80px;
-            margin-bottom: 50px;
-            animation: fadeInUp 0.8s ease backwards;
-        }
-
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-
-        .timeline-marker {
-            position: absolute;
-            left: 20px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary-cyan);
-            border: 3px solid var(--bg-card);
-            box-shadow: 0 0 20px var(--primary-cyan);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 20px var(--primary-cyan); }
-            50% { transform: scale(1.2); box-shadow: 0 0 30px var(--primary-cyan); }
-        }
-
-        .timeline-content {
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            background: rgba(0, 240, 255, 0.1);
-            border-color: var(--primary-cyan);
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .job-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.6rem;
-            color: var(--primary-cyan);
-            font-weight: 700;
-        }
-
-        .company {
-            font-size: 1.2rem;
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-
-        .responsibilities {
-            list-style: none;
-            margin: 20px 0;
-            padding: 0;
-        }
-
-        .responsibilities li {
-            padding-left: 30px;
-            margin-bottom: 12px;
-            position: relative;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .responsibilities li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary-cyan);
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .tech-tag {
-            background: rgba(255, 0, 255, 0.1);
-            border: 1px solid var(--primary-magenta);
-            color: var(--primary-magenta);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-family: 'Share Tech Mono', monospace;
-            transition: all 0.3s ease;
-        }
-
-        .tech-tag:hover {
-            background: var(--primary-magenta);
-            color: var(--bg-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
-        }
-
         /* Project Images */
         .project-image {
             width: 100%;
@@ -956,97 +828,6 @@
             color: var(--accent-green);
             transform: translateX(5px);
             text-shadow: 0 0 10px var(--accent-green);
-        }
-
-        /* Achievements Banner */
-        .achievements-banner {
-            margin-top: 50px;
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 240, 255, 0.05));
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            border-radius: 20px;
-            padding: 40px;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
-        .achievements-banner h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            color: var(--accent-green);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .achievement-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .achievement-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            background: rgba(0, 240, 255, 0.05);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .achievement-item:hover {
-            background: rgba(0, 240, 255, 0.1);
-            border-color: var(--primary-cyan);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
-        }
-
-        .achievement-icon {
-            font-size: 2.5rem;
-            filter: drop-shadow(0 0 10px var(--accent-green));
-        }
-
-        .achievement-item strong {
-            color: var(--primary-cyan);
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .achievement-item p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 10px;
-            }
-            
-            .timeline-item {
-                padding-left: 50px;
-            }
-            
-            .timeline-marker {
-                left: 0;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .achievement-items {
-                grid-template-columns: 1fr;
-            }
-
-            .award-badge {
-                font-size: 0.75rem;
-                padding: 6px 15px;
-            }
         }
 
         /* Certifications */
@@ -1628,9 +1409,10 @@
                     Exploring the intersection of electronics, telecommunications, and cutting-edge hardware technologies at Mumbai University
                 </p>
                 <div class="cta-buttons">
-                    <a href="#education" class="btn">View Education</a>
-                    <a href="#projects" class="btn btn-secondary">See Projects</a>
-                    <a href="#contact" class="btn">Contact Me</a>
+                    <a href="#education" class="btn">Education</a>
+                    <a href="#projects" class="btn">Projects</a>
+                    <a href="#skills" class="btn btn-secondary">Skills</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
                 </div>
             </div>
         </div>
@@ -1774,6 +1556,8 @@
             </div>
         </section>
 
+        
+
         <!-- Skills Section -->
         <section id="skills">
             <h2 class="section-title"><span>Skills & Expertise</span></h2>
@@ -1891,6 +1675,11 @@
                                 <span>VHDL / Verilog</span>
                             </div>
                         </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Version Control (Git)</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="skill-category">
@@ -1932,7 +1721,7 @@
                 </div>
                 
                 <div class="contact-grid">
-                    <a href="https://www.linkedin.com/in/dhruv-vasaniya" target="_blank" class="contact-card">
+                    <a href="https://www.linkedin.com/in/dhruv-vasaniya" target="_blank" rel="noopener noreferrer" class="contact-card">
                         <div class="contact-icon">💼</div>
                         <h4>LinkedIn</h4>
                         <p class="contact-label">Professional Network</p>
@@ -1951,10 +1740,13 @@
                 <div class="social-links">
                     <h3>Find Me Online</h3>
                     <div class="social-grid">
-                        <a href="https://github.com/dhruvvasaniya07" target="_blank" class="social-btn" title="GitHub">
+                        <a href="https://github.com/dhruvvasaniya07" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
                             <span class="social-icon">💻</span>
                             <span>GitHub</span>
                         </a>
+                        <a href="https://www.instagram.com/dhruvvasaniya" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">
+                            <span class="social-icon">📸</span>
+                            <span>Instagram</span>
                         </a>
                         </div>
                 </div>
