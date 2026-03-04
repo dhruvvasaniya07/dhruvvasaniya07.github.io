@@ -59,7 +59,10 @@
 
         /* Profile Image */
         .profile-image-container {
-            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
             animation: fadeInUp 1s ease backwards;
         }
 
@@ -71,6 +74,8 @@
             border: 4px solid var(--primary-cyan);
             box-shadow: 0 0 40px var(--primary-cyan), 0 0 80px rgba(0, 240, 255, 0.3);
             animation: profileGlow 3s infinite alternate;
+            display: block;
+            margin: 0 auto;
         }
 
         @keyframes profileGlow {
@@ -159,9 +164,15 @@
 
         .hero-content {
             text-align: center;
-            padding: 40px;
+            padding: 40px 20px;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .glitch-wrapper {
@@ -183,6 +194,8 @@
             text-transform: uppercase;
             letter-spacing: 8px;
             position: relative;
+            text-align: center;
+            width: 100%;
         }
 
         @keyframes gradientShift {
@@ -205,14 +218,19 @@
             margin-bottom: 30px;
             text-shadow: var(--glow-cyan);
             animation: fadeInUp 1s ease 0.3s backwards;
+            text-align: center;
+            width: 100%;
         }
 
         .tagline {
             font-size: clamp(1rem, 2vw, 1.3rem);
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 40px;
             animation: fadeInUp 1s ease 0.6s backwards;
+            text-align: center;
+            line-height: 1.8;
+            padding: 0 20px;
         }
 
         @keyframes fadeInUp {
@@ -1209,9 +1227,11 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             margin-top: 40px;
             animation: fadeInUp 1s ease 0.9s backwards;
+            width: 100%;
         }
 
         .btn {
@@ -1629,56 +1649,6 @@
             font-size: 0.9rem;
         }
 
-        /* Social Proof */
-        .social-proof {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-            padding: 40px;
-            background: rgba(0, 240, 255, 0.03);
-            border: 2px solid rgba(0, 240, 255, 0.2);
-            border-radius: 20px;
-            animation: fadeInUp 1s ease 1.2s backwards;
-        }
-
-        .proof-item {
-            text-align: center;
-            padding: 20px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .proof-item:hover {
-            background: rgba(0, 240, 255, 0.1);
-            transform: scale(1.05);
-        }
-
-        .proof-number {
-            font-family: 'Orbitron', monospace;
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--primary-cyan), var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: inline-block;
-        }
-
-        .proof-plus {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            color: var(--primary-magenta);
-            margin-left: 5px;
-        }
-
-        .proof-item p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-top: 10px;
-        }
-
-    
         /* Swipeable Project Gallery for Mobile */
         @media (max-width: 768px) {
             .projects-grid {
@@ -1710,6 +1680,59 @@
             }
         }
 
+    
+        /* Enhanced Hero Layout */
+        .glitch-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Better spacing between sections */
+        header {
+            padding-bottom: 60px;
+        }
+
+        /* Improved scroll indicator position */
+        .scroll-indicator {
+            bottom: 40px;
+        }
+
+        /* Perfect button alignment */
+        .btn {
+            margin: 0 5px;
+        }
+
+        /* Better responsive spacing */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 30px 15px;
+            }
+            
+            .profile-image-container {
+                margin-bottom: 30px;
+            }
+            
+            h1 {
+                letter-spacing: 4px;
+                margin-bottom: 15px;
+            }
+            
+            .role {
+                margin-bottom: 20px;
+            }
+            
+            .tagline {
+                margin-bottom: 30px;
+            }
+            
+            .cta-buttons {
+                margin-top: 30px;
+                gap: 15px;
+            }
+        }
+
     </style>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -1719,40 +1742,7 @@
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX'); // Replace with your Google Analytics ID
 
-        // Counter Animation for Social Proof
-        const animateCounters = () => {
-            const counters = document.querySelectorAll('.proof-number');
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-                
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            updateCounter();
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                });
-                
-                observer.observe(counter);
-            });
-        };
         
-        animateCounters();
 
 
         // Hover Sound Effects (Optional - Subtle)
@@ -1850,15 +1840,6 @@
             </div>
         </div>
         
-        <div class="social-proof">
-            
-            
-            
-            <div class="proof-item">
-                <span class="proof-number" data-target=2>0</span>
-                <span class="proof-plus">nd</span>
-                <p>Year Engineering Student</p>
-            </div>
         </div>
 
         <div class="scroll-indicator"></div>
