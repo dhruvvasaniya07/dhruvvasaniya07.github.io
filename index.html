@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://github-readme-stats.vercel.app https://github-readme-streak-stats.herokuapp.com; frame-src 'none';">
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Dhruv Vasaniya - Electronics & Telecommunication Engineering student at VIVA Institute of Technology. Award-winning projects in robotics, IoT, and hardware design. Oracle Cloud & AI certified.">
     <meta name="keywords" content="Dhruv Vasaniya, E&TC Engineer, Electronics Engineering, Hardware Design, IoT, Robotics, Fire-Fighting Robot, Mumbai University, VIVA Institute, Oracle Cloud Certified">
@@ -871,93 +880,121 @@
         }
 
         /* Certifications */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        .cert-single {
+            display: flex;
+            justify-content: center;
             margin-top: 30px;
         }
 
-        .cert-badge {
-            background: rgba(255, 0, 255, 0.1);
+        .cert-badge-large {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 240, 255, 0.1));
             border: 2px solid var(--primary-magenta);
-            border-radius: 15px;
-            padding: 35px;
-            text-align: center;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
         }
 
-        .cert-badge::after {
+        .cert-badge-large::after {
             content: '✓';
             position: absolute;
-            top: -15px;
-            right: -15px;
-            width: 45px;
-            height: 45px;
+            top: -20px;
+            right: -20px;
+            width: 50px;
+            height: 50px;
             background: var(--accent-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--bg-dark);
-            box-shadow: 0 0 20px var(--accent-green);
+            box-shadow: 0 0 30px var(--accent-green);
         }
 
-        .cert-badge:hover {
-            transform: translateY(-8px) rotateY(5deg);
-            box-shadow: 0 15px 40px rgba(255, 0, 255, 0.5);
-            background: rgba(255, 0, 255, 0.2);
+        .cert-badge-large:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 0, 255, 0.5);
             border-color: var(--primary-cyan);
         }
 
-        .cert-logo {
+        .cert-icon {
             font-size: 4rem;
+            text-align: center;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 15px var(--primary-magenta));
+            filter: drop-shadow(0 0 20px var(--primary-cyan));
         }
 
-        .cert-badge h4 {
+        .cert-badge-large h4 {
             font-family: 'Orbitron', monospace;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--primary-magenta);
             margin-bottom: 15px;
-        }
-
-        .cert-title {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            text-align: center;
+            line-height: 1.4;
         }
 
         .cert-issuer {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+            text-align: center;
+            color: var(--accent-green);
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 20px;
+        }
+
+        .cert-description {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            padding: 0 20px;
         }
 
         .cert-skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             justify-content: center;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .cert-tag {
-            background: rgba(0, 240, 255, 0.1);
-            border: 1px solid var(--primary-cyan);
-            padding: 5px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            color: var(--primary-cyan);
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-family: 'Share Tech Mono', monospace;
+            transition: all 0.3s ease;
         }
 
-        /* Skills Section */
+        .cert-tag:hover {
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .cert-badge-large {
+                padding: 30px 20px;
+            }
+            
+            .cert-badge-large h4 {
+                font-size: 1.2rem;
+            }
+            
+            .cert-icon {
+                font-size: 3rem;
+            }
+        }
+
+/* Skills Section */
         .skills-header {
             text-align: center;
             margin-bottom: 40px;
@@ -1733,14 +1770,40 @@
             }
         }
 
+    
+        /* Security - Prevent Easy Content Theft */
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        /* Allow selection for normal text reading */
+        p, li, .tagline, .cert-description {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        
+        /* Protect code and technical content */
+        code, pre, .skill-name, h1, h2, h3 {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+
     </style>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EDJD59YVH"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-4EDJD59YVH'); // Replace with your Google Analytics ID
+        gtag('config', 'G-XXXXXXXXXX'); // Replace with your Google Analytics ID
 
         
 
@@ -1783,6 +1846,115 @@
         
         // Uncomment to enable hover sounds
         // createHoverSound();
+
+
+        // ============================================
+        // SECURITY MEASURES - PROTECT THE WEBSITE
+        // ============================================
+        
+        // 1. Disable Right-Click (Prevent easy code viewing)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            console.log('Right-click disabled for security');
+        });
+        
+        // 2. Disable F12 / Developer Tools shortcuts
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+I (DevTools)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+J (Console)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+C (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+U (View Source)
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+S (Save Page)
+            if (e.ctrlKey && e.keyCode === 83) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // 3. Detect DevTools Opening
+        const devToolsCheck = setInterval(function() {
+            const threshold = 160;
+            const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+            const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+            
+            if (widthThreshold || heightThreshold) {
+                console.log('Developer Tools detected - Some features may be restricted');
+            }
+        }, 1000);
+        
+        // 4. Disable text selection on sensitive elements
+        document.querySelectorAll('h1, h2, code, .skill-name').forEach(element => {
+            element.style.userSelect = 'none';
+            element.style.webkitUserSelect = 'none';
+            element.style.mozUserSelect = 'none';
+            element.style.msUserSelect = 'none';
+        });
+        
+        // 5. Prevent console tampering
+        (function() {
+            const original = console.log;
+            console.log = function() {
+                original.apply(console, ['[Protected]', ...arguments]);
+            };
+        })();
+        
+        // 6. Add watermark (invisible but present in code)
+        const watermark = document.createElement('div');
+        watermark.style.display = 'none';
+        watermark.setAttribute('data-owner', 'Dhruv Vasaniya');
+        watermark.setAttribute('data-created', new Date().toISOString());
+        watermark.setAttribute('data-protected', 'true');
+        document.body.appendChild(watermark);
+        
+        // 7. Monitor for unauthorized changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.nodeName === 'SCRIPT' && !node.src.includes('googletagmanager')) {
+                            console.warn('Unauthorized script detected');
+                        }
+                    });
+                }
+            });
+        });
+        
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+        
+        // 8. Prevent iframe embedding
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+        
+        // 9. Add copyright notice to console
+        console.log('%c⚠️ STOP! ⚠️', 'color: red; font-size: 50px; font-weight: bold;');
+        console.log('%cThis is a browser feature intended for developers.', 'font-size: 16px;');
+        console.log('%cIf someone told you to copy-paste something here, it is a scam.', 'font-size: 16px; color: red;');
+        console.log('%c© 2025 Dhruv Vasaniya. All rights reserved.', 'font-size: 14px; font-weight: bold;');
 
     </script>
 
@@ -2055,7 +2227,7 @@
                         
                         <div class="skill-item">
                             <div class="skill-name">
-                                <span>Arduino </span>
+                                <span>Arduino / Raspberry Pi</span>
                             </div>
                         </div>
                     </div>
@@ -2101,7 +2273,11 @@
                                 <span>VHDL / Verilog</span>
                             </div>
                         </div>
-                       
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Version Control (Git)</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="skill-category">
