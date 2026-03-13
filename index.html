@@ -75,31 +75,68 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             animation: fadeInUp 1s ease backwards;
         }
 
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--primary-cyan);
-            box-shadow: 0 0 40px var(--primary-cyan), 0 0 80px rgba(0, 240, 255, 0.3);
-            animation: profileGlow 3s infinite alternate;
+            border: 6px solid var(--primary-cyan);
+            box-shadow: 0 0 60px var(--primary-cyan), 
+                        0 0 120px rgba(0, 240, 255, 0.4),
+                        0 0 180px rgba(0, 240, 255, 0.2);
+            animation: profileGlow 3s infinite alternate, profileFloat 4s ease-in-out infinite;
             display: block;
             margin: 0 auto;
+            transition: all 0.4s ease;
         }
 
         @keyframes profileGlow {
-            0% { box-shadow: 0 0 40px var(--primary-cyan), 0 0 80px rgba(0, 240, 255, 0.3); }
-            100% { box-shadow: 0 0 50px var(--primary-cyan), 0 0 100px rgba(0, 240, 255, 0.5); }
+            0% { 
+                box-shadow: 0 0 60px var(--primary-cyan), 
+                            0 0 120px rgba(0, 240, 255, 0.4),
+                            0 0 180px rgba(0, 240, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 80px var(--primary-cyan), 
+                            0 0 160px rgba(0, 240, 255, 0.5),
+                            0 0 240px rgba(0, 240, 255, 0.3);
+            }
+            100% { 
+                box-shadow: 0 0 60px var(--primary-cyan), 
+                            0 0 120px rgba(0, 240, 255, 0.4),
+                            0 0 180px rgba(0, 240, 255, 0.2);
+            }
+        }
+        
+        /* Floating animation for huge photo */
+        @keyframes profileFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+
+        /* Hover effect for huge profile photo */
+        .profile-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 80px var(--primary-cyan), 
+                        0 0 160px rgba(0, 240, 255, 0.6),
+                        0 0 240px rgba(0, 240, 255, 0.4);
+            border-color: var(--primary-magenta);
         }
 
         @media (max-width: 768px) {
             .profile-image {
-                width: 150px;
-                height: 150px;
+                width: 220px;
+                height: 220px;
+                border: 5px solid var(--primary-cyan);
             }
         }
 
@@ -984,6 +1021,16 @@
             transform: translateY(-2px);
         }
 
+
+        /* Hover effect for huge profile photo */
+        .profile-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 80px var(--primary-cyan), 
+                        0 0 160px rgba(0, 240, 255, 0.6),
+                        0 0 240px rgba(0, 240, 255, 0.4);
+            border-color: var(--primary-magenta);
+        }
+
         @media (max-width: 768px) {
             .cert-badge-large {
                 padding: 30px 20px;
@@ -1420,6 +1467,16 @@
         }
 
         /* Responsive Design */
+
+        /* Hover effect for huge profile photo */
+        .profile-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 80px var(--primary-cyan), 
+                        0 0 160px rgba(0, 240, 255, 0.6),
+                        0 0 240px rgba(0, 240, 255, 0.4);
+            border-color: var(--primary-magenta);
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 3rem; letter-spacing: 3px; }
             .role { font-size: 1.3rem; }
@@ -1691,6 +1748,16 @@
         }
 
         /* Swipeable Project Gallery for Mobile */
+
+        /* Hover effect for huge profile photo */
+        .profile-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 80px var(--primary-cyan), 
+                        0 0 160px rgba(0, 240, 255, 0.6),
+                        0 0 240px rgba(0, 240, 255, 0.4);
+            border-color: var(--primary-magenta);
+        }
+
         @media (max-width: 768px) {
             .projects-grid {
                 display: flex;
@@ -1746,6 +1813,16 @@
         }
 
         /* Better responsive spacing */
+
+        /* Hover effect for huge profile photo */
+        .profile-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 80px var(--primary-cyan), 
+                        0 0 160px rgba(0, 240, 255, 0.6),
+                        0 0 240px rgba(0, 240, 255, 0.4);
+            border-color: var(--primary-magenta);
+        }
+
         @media (max-width: 768px) {
             .hero-content {
                 padding: 30px 15px;
