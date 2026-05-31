@@ -51,7 +51,7 @@
             --bg-darker: #050508;
             --bg-card: #1a1a2e;
             --text-primary: #ffffff;
-            --text-secondary: #b8b8d0;
+            --text-secondary: #d0d0e8;
             --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.5);
             --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.5);
         }
@@ -899,25 +899,51 @@
 
         .project-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
-        .project-link {
-            color: var(--primary-cyan);
-            text-decoration: none;
-            font-family: 'Orbitron', monospace;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
+        .project-link-btn {
             display: inline-flex;
             align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border: 1.5px solid var(--primary-cyan);
+            border-radius: 25px;
+            color: var(--primary-cyan);
+            text-decoration: none;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: rgba(0, 240, 255, 0.07);
+            letter-spacing: 0.5px;
         }
 
-        .project-link:hover {
-            color: var(--accent-green);
-            transform: translateX(5px);
-            text-shadow: 0 0 10px var(--accent-green);
+        .project-link-btn:hover {
+            background: var(--primary-cyan);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
+        }
+
+        /* About Me Section */
+        .about-section {
+            padding: 60px 0 20px;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text strong {
+            color: var(--primary-cyan);
         }
 
         /* Certifications */
@@ -2081,6 +2107,7 @@
                     Exploring the intersection of electronics, telecommunications, and cutting-edge hardware technologies at Mumbai University
                 </p>
                 <div class="cta-buttons">
+                    <a href="#about" class="btn">About</a>
                     <a href="#education" class="btn">Education</a>
                     <a href="#projects" class="btn">Projects</a>
                     <a href="#skills" class="btn btn-secondary">Skills</a>
@@ -2088,7 +2115,6 @@
                     <a href="./resume.pdf" class="btn resume-btn" download="Dhruv_Vasaniya_Resume.pdf">
                         📄 Download Resume
                     </a>
-
                 </div>
             </div>
         </div>
@@ -2099,6 +2125,16 @@
     </header>
 
     <div class="container">
+        <!-- About Me Section -->
+        <section class="about-section" id="about">
+            <h2 class="section-title"><span>About Me</span></h2>
+            <div class="holo-card">
+                <p class="about-text">
+                    Second-year <strong>Electronics and Telecommunication Engineering</strong> student at VIVA Institute of Technology, Mumbai, with a track record of building award-winning hardware across national competitions. Passionate about <strong>embedded systems, robotics, and IoT</strong> — I've gone from wiring my first Arduino to designing autonomous robots and smart automation systems. Currently deepening expertise in <strong>PCB design, Edge AI, and wireless communication</strong>, and actively seeking internship opportunities where I can contribute to real-world hardware engineering.
+                </p>
+            </div>
+        </section>
+
         <!-- Education Section -->
         <section id="education">
             <h2 class="section-title"><span>Education & Achievements</span></h2>
@@ -2172,9 +2208,9 @@
                             Built a Smart Attendance System to make attendance tracking simpler, smarter, and more efficient. Designed the core hardware setup and ensured the system worked in a real-world environment — from wiring and troubleshooting to final integration.
                         </p>
                         <ul class="project-highlights">
-                            <li>🥇 Won 1st Prize at Agastya Foundation & J.P. Morgan School Innovation Challenge</li>
-                            <li>🔧 Role: Hardware & Software Lead</li>
-                            <li>⚡ End-to-end hardware design and software integration</li>
+                            <li>🥇 Won 1st Prize among 50+ teams at Agastya Foundation & J.P. Morgan School Innovation Challenge</li>
+                            <li>🔧 Role: Hardware & Software Lead — end-to-end circuit design, wiring, and integration</li>
+                            <li>⚡ Designed RFID/sensor-based system for real-time attendance tracking with zero manual input</li>
                             <li>🙏 Mentored by Nutan Malekar</li>
                         </ul>
                         <div class="project-tech">
@@ -2183,6 +2219,9 @@
                             <span class="tech-tag">Software Integration</span>
                             <span class="tech-tag">IoT</span>
                             <span class="tech-tag">Prototyping</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvvasaniya07/smart-attendance-system" target="_blank" rel="noopener noreferrer" class="project-link-btn">💻 View Code</a>
                         </div>
                         <p style="color: var(--accent-green); margin-top: 15px; font-style: italic;">
                             👥 Team: Dhruv Vasaniya & Yash Patil
@@ -2204,10 +2243,10 @@
                             Designed a low-cost autonomous fire-fighting robot to address agricultural fire hazards through early detection and targeted fire suppression. The system reduces crop loss and minimizes water usage using affordable hardware and wireless communication technology.
                         </p>
                         <ul class="project-highlights">
-                            <li>🏅 Won 3rd Consolation Prize at Anveshana 2025-26</li>
-                            <li>🌾 Addresses agricultural fire hazards with early detection</li>
-                            <li>💧 Reduces crop loss and optimizes water usage</li>
-                            <li>🤝 Conducted by Agastya International Foundation & Samsung Semiconductor India Research</li>
+                            <li>🏅 Won 3rd Consolation Prize at Anveshana 2025-26 (conducted by Agastya Foundation & Samsung Semiconductor India Research)</li>
+                            <li>🔥 IR flame sensor detects fire within 30cm; RF module enables wireless control up to 15m</li>
+                            <li>💧 Water pump auto-activates on detection — reduces crop loss with targeted suppression</li>
+                            <li>🌾 Designed for low-cost deployment in agricultural fire hazard zones</li>
                         </ul>
                         <div class="project-tech">
                             <span class="tech-tag">Robotics</span>
@@ -2215,6 +2254,9 @@
                             <span class="tech-tag">Wireless Communication</span>
                             <span class="tech-tag">Fire Detection</span>
                             <span class="tech-tag">IoT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvvasaniya07/fire-fighting-robot" target="_blank" rel="noopener noreferrer" class="project-link-btn">💻 View Code</a>
                         </div>
                         <p style="color: var(--accent-green); margin-top: 15px; font-style: italic;">
                             👥 Team: Dhruv Vasaniya & Yash Patil
@@ -2236,10 +2278,10 @@
                             Built a smart, practical, and impactful Electric Whistle solution from the ground up. Handled the software side, connected hardware logic to a functional system, and ensured everything came together cohesively for the final presentation.
                         </p>
                         <ul class="project-highlights">
-                            <li>🎖️ Appreciation Award for Best Presentation</li>
-                            <li>💻 Role: Full-Stack & Integration Lead</li>
-                            <li>🔗 Bridged hardware logic with functional software system</li>
-                            <li>🎤 Delivered a compelling presentation to industry panel</li>
+                            <li>🎖️ Appreciation Award for Best Presentation among 50+ teams at JP Morgan x Agastya Challenge</li>
+                            <li>💻 Role: Full-Stack & Integration Lead — bridged hardware logic with functional software</li>
+                            <li>🔊 Sound-activated trigger system using microphone sensor with adjustable sensitivity threshold</li>
+                            <li>🎤 Delivered compelling pitch to industry panel from J.P. Morgan</li>
                         </ul>
                         <div class="project-tech">
                             <span class="tech-tag">Full-Stack Integration</span>
@@ -2247,6 +2289,9 @@
                             <span class="tech-tag">Embedded Systems</span>
                             <span class="tech-tag">Prototyping</span>
                             <span class="tech-tag">Presentation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/dhruvvasaniya07/whistle-system" target="_blank" rel="noopener noreferrer" class="project-link-btn">💻 View Code</a>
                         </div>
                         <p style="color: var(--accent-green); margin-top: 15px; font-style: italic;">
                             👥 Team: Dhruv Vasaniya & Yash Patil
@@ -2267,10 +2312,10 @@
                             Developed an Arduino-based Fire & Smoke Detection System featuring real-time monitoring and instant safety alerts. The system integrates multiple sensors for comprehensive fire and smoke detection with visual and audio alerts.
                         </p>
                         <ul class="project-highlights">
-                            <li>🎯 First mini project as first-year engineering students</li>
-                            <li>📟 Real-time monitoring with LCD display</li>
-                            <li>🔔 Instant alerts via buzzer system</li>
-                            <li>🛠️ Overcame last-minute debugging challenges</li>
+                            <li>🎯 First hardware project as first-year students — built and deployed in under 48 hours</li>
+                            <li>🔥 MQ7 + flame sensor combo detects smoke/fire within seconds with dual-layer redundancy</li>
+                            <li>📟 Real-time LCD readout shows sensor values; buzzer triggers instant audio alert</li>
+                            <li>🛠️ Overcame last-minute debugging challenges under competition pressure</li>
                             <li>🏆 Presented at Oscillations 2025 (IETE Mumbai)</li>
                         </ul>
                         <div class="project-tech">
@@ -2560,7 +2605,7 @@
     <!-- Footer -->
     <footer>
         <p>Designed & Developed with <span class="love">♥</span> by Dhruv Vasaniya</p>
-        <p style="margin-top: 10px; font-size: 0.85rem;">© 2025 | Built with HTML, CSS & JavaScript</p>
+        <p style="margin-top: 10px; font-size: 0.85rem;">© 2026 | Built with HTML, CSS & JavaScript</p>
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
